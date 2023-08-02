@@ -1,20 +1,21 @@
+import os
 import requests
 import csv
 import pandas as pd
 from flask import Flask, render_template, url_for, request
 app = Flask(__name__)
 
-# d5e3da244db34daca7ac98b14139eb33
+from dotenv import load_dotenv
 
 global newsObject
 
 @app.route("/", methods=["GET", "POST"])
 def home():
     if request.method == "POST":
-        api_key = 'd5e3da244db34daca7ac98b14139eb33'
+        api_key = os.environ.get('API_KEY', '')
 
 
-        headers = {'Authorization': 'd5e3da244db34daca7ac98b14139eb33'}
+        headers = {'Authorization': api_key}
 
         everything = 'https://newsapi.org/v2/everything?'
 
