@@ -73,4 +73,7 @@ def dashboard():
     import plotlyGraph
     return render_template('db.html')
 
+print("Hello world")
+print("Commit check")
+
 app.run(debug=True)
